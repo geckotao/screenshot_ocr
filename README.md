@@ -11,12 +11,21 @@ PySide6 mss Pillow pyperclip
 
 
 程序文件夹
-├── ocr.py                
-├── ocr_icon.ico              
+
+├── ocr.py  
+
+├── ocr_icon.ico  
+
 └── rapidocr/
+
     ├── RapidOcrOnnx.exe
-    └── models/               
+    
+    └── models/        
+    
          ├──ppocr_keys_v1.txt
+         
          ├──ch_PP-OCRv4_rec_infer.onnx
+         
          ├──ch_PP-OCRv4_det_infer.onnx
+         
          └──ch_ppocr_mobile_v2.0_cls_infer.onnx
