@@ -145,30 +145,13 @@ class OCRWorker(QObject):
             stdout_marker = "【标准输出】\n".encode("utf-8")
             stderr_marker = "\n【错误输出】\n".encode("utf-8")
             raw_bytes = stdout_marker + result.stdout + stderr_marker + result.stderr
-
-            # ========== 新增：控制台打印原始未过滤日志 ==========
-            print("\n" + "="*50)
-            print("【测试输出】原始未过滤日志信息：")
-            print("-"*30)
-            # 尝试解码为字符串打印（优先utf-8，失败则gbk）
-            try:
-                raw_str = raw_bytes.decode("utf-8", errors="replace")
-            except:
-                raw_str = raw_bytes.decode("gbk", errors="replace")
-            print(raw_str)
-            print("="*50 + "\n")
-            # ========== 新增结束 ==========
-
             pure_text = filter_ocr_bytes(raw_bytes)
-
             if "未识别到有效文本" == pure_text or "识别失败" in pure_text:
                 self.error_occurred.emit(pure_text)
             else:
                 self.result_ready.emit(pure_text)
-
         except Exception as e:
             self.error_occurred.emit(f"OCR 执行异常: {str(e)}")
-
 
 # ========== 截图部件 (美化选框和遮罩) ==========
 class ScreenshotWidget(QtWidgets.QWidget):
@@ -239,7 +222,7 @@ class ScreenshotWidget(QtWidgets.QWidget):
             self.update()
     
     def mouseReleaseEvent(self, event):
-        self.rubberband.hide()
+        self.rubberband。hide()
         rect = self.current_rect
         if rect.width() <= 10 or rect.height() <= 10:
             self.close()
@@ -263,13 +246,13 @@ class ScreenshotWidget(QtWidgets.QWidget):
         self.close()
 
 
-# ========== 主窗口 (全面美化) ==========
+# ========== 主窗口 =======
 class OCRMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         # 窗口基础设置
         self.setWindowTitle("截屏OCR工具")
-        self.resize(800, 500)  # 增大默认窗口尺寸，提升操作体验
+        self.resize(800, 500)  # 默认窗口尺寸
         self.setMinimumSize(600, 400)
         self.setWindowFlags(Qt.Window | Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint)
         
@@ -685,7 +668,7 @@ if __name__ == '__main__':
     required_models = [
         "ppocr_keys_v1.txt",
         "ch_PP-OCRv4_det_infer.onnx",
-        "ch_ppocr_mobile_v2.0_cls_infer.onnx",
+        "ch_ppocr_mobile_v2.0_cls_infer.onnx"，
         "ch_PP-OCRv4_rec_infer.onnx"
     ]
     for m in required_models:
