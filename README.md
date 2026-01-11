@@ -1,4 +1,4 @@
-截屏OCR程序
+截屏OCR及图片OCR程序（无需联网可使用）
 
 使用RapidOcrOnnx的截屏OCR，OCR调用RapidOcrOnnx.exe（来自https://github.com/RapidAI/RapidOcrOnnx）及Rapid的检测识别OCRv4模型（来自https://github.com/RapidAI/RapidOCR）
 
